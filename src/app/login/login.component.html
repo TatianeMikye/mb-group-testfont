@@ -1,0 +1,34 @@
+<div class="background">
+  <mat-card class="card">
+    <form class="example-form" [formGroup]="form">
+      <img class="image-icon"
+        src="https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png"
+        width="100" height="100">
+      <p>
+        <mat-form-field class="full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="form.get('email').hasError('email') && !form.hasError('required')">
+            Email inválido
+          </mat-error>
+          <mat-error *ngIf="form.get('email').hasError('required')">
+            Email é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full-width">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput formControlName="senha">
+          <mat-error *ngIf="form.get('senha').hasError('required')">
+            Senha é <strong>obrigatória</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    </form>
+    <div class="button-row">
+      <button mat-raised-button color="primary" [disabled]="form.pristine || form.invalid" (click)="onLogar()">Entrar</button>
+      <button mat-button color="accent">Cancelar</button>
+    </div>
+  </mat-card>
+</div>
